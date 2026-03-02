@@ -1,0 +1,7 @@
+name: dff2c
+description: Positive edge-triggered D flip-flop with synchronous reset, built from transmission gates and NOR gates
+PDK: ihp-sg13g2
+
+ports: []
+
+parameters: []

@@ -1,0 +1,7 @@
+name: norgate
+description: 2-input NOR gate used as a building block for the DFF
+PDK: ihp-sg13g2
+
+ports: []
+
+parameters: []

@@ -1,0 +1,7 @@
+name: andgate
+description: 2-input AND gate (NAND2 + INV) implementing Y = A · B
+PDK: ihp-sg13g2
+
+ports: []
+
+parameters: []

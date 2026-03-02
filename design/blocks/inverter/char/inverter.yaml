@@ -1,0 +1,7 @@
+name: inverter
+description: CMOS inverter (INV) implementing Y = NOT A
+PDK: ihp-sg13g2
+
+ports: []
+
+parameters: []

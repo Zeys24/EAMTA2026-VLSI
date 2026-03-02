@@ -1,0 +1,7 @@
+name: xorgate
+description: 2-input XOR gate implementing Y = A ⊕ B
+PDK: ihp-sg13g2
+
+ports: []
+
+parameters: []

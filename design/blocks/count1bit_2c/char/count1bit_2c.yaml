@@ -1,0 +1,7 @@
+name: count1bit_2c
+description: Single-bit counter stage implementing D = Q ⊕ EN and CO = Q · EN
+PDK: ihp-sg13g2
+
+ports: []
+
+parameters: []

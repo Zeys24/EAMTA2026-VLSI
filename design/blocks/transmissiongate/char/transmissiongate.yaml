@@ -1,0 +1,7 @@
+name: transmissiongate
+description: Transmission gate (pass gate) used as a building block for the DFF
+PDK: ihp-sg13g2
+
+ports: []
+
+parameters: []

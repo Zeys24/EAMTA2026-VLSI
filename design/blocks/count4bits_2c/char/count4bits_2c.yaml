@@ -1,0 +1,7 @@
+name: count4bits_2c
+description: 4-bit synchronous binary counter integrating four counter stages
+PDK: ihp-sg13g2
+
+ports: []
+
+parameters: []
