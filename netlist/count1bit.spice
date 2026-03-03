@@ -1,62 +1,5 @@
-** sch_path: /home/mateo/GitRepos/IVAN-EAMTA2026/verification/testbenches/count4bits/tb_count4bits.sch
-**.subckt tb_count4bits
-x1 avdd1p8 avss1p8 avdd1p8 0b clk_sig avss1p8 1b 2b 3b count4bits
-V4 avss1p8 GND DC{vss}
-V5 avdd1p8 avss1p8 DC{vdd}
-V6 clk_sig avss1p8 PULSE({vdd} 0 0.0 1p 1p {Tclk/4} {Tclk/2}) DC 0 AC 0
-**** begin user architecture code
-
-
-* Circuit Parameters
-.param vdd = 1.2
-.param vss = 0.0
-.param Tclk = 10n
-.options TEMP = 27.0
-* Include Models - IHP SG13G2
-.lib cornerMOSlv.lib mos_tt
-* OP Parameters & Singals to save
-.save all
-*Simulations
-.control
-tran 0.01u 100n
-setplot tran1
-plot v(clk_sig) v(0b)+1.2 v(1b)+2.4 v(2b)+3.6 v(3b)+4.8
-reset
-dc V6 0 1.2 0.01
-setplot dc
-set filetype = ascii
-write dcsweep.raw
-.endc
-.end
-
-
-**** end user architecture code
-**.ends
-
-* expanding   symbol:  top/schematic/count4bits.sym # of pins=9
-** sym_path: /home/mateo/GitRepos/IVAN-EAMTA2026/design/top/schematic/count4bits.sym
-** sch_path: /home/mateo/GitRepos/IVAN-EAMTA2026/design/top/schematic/count4bits.sch
-.subckt count4bits vdd vss CE 00 CLK CLR 01 10 11
-*.iopin CE
-*.iopin vdd
-*.iopin vss
-*.iopin CLK
-*.iopin 00
-*.iopin 01
-*.iopin CLR
-*.iopin 10
-*.iopin 11
-x1 vdd 00 CLK CE vss CLR net1 count1bit
-x2 vdd 01 CLK net1 vss CLR net2 count1bit
-x3 vdd 10 CLK net2 vss CLR net3 count1bit
-x4 vdd 11 CLK net3 vss CLR net4 count1bit
-.ends
-
-
-* expanding   symbol:  blocks/count1bit/schematic/count1bit.sym # of pins=7
-** sym_path: /home/mateo/GitRepos/IVAN-EAMTA2026/design/blocks/count1bit/schematic/count1bit.sym
 ** sch_path: /home/mateo/GitRepos/IVAN-EAMTA2026/design/blocks/count1bit/schematic/count1bit.sch
-.subckt count1bit vdd Dn CLK CE vss CLR Sout
+**.subckt count1bit vdd Dn CLK CE vss CLR Sout
 *.iopin Dn
 *.iopin CLK
 *.iopin CLR
@@ -67,8 +10,7 @@ x4 vdd 11 CLK net3 vss CLR net4 count1bit
 x1 net1 Dn CLR net2 vdd CLK vss dff
 x2 vdd net1 vss Dn CE xorgate
 x3 vdd CE Sout Dn vss andgate
-.ends
-
+**.ends
 
 * expanding   symbol:  blocks/dff/schematic/dff.sym # of pins=7
 ** sym_path: /home/mateo/GitRepos/IVAN-EAMTA2026/design/blocks/dff/schematic/dff.sym
@@ -179,5 +121,4 @@ XM1 out in vss vss sg13_lv_nmos w=0.75u l=0.15u ng=1 m=1
 XM2 out in vdd vdd sg13_lv_pmos w=1.5u l=0.15u ng=1 m=1
 .ends
 
-.GLOBAL GND
 .end
