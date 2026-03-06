@@ -8,8 +8,6 @@ This guide will help you set up the development environment for the 4-bit counte
 
 This section provides single commands to install dependencies, clone the repository, and run the setup script without requiring user interaction during the process.
 
-**⚠️ IMPORTANT:** The automated installation generates an SSH key automatically (no prompts required). You will still need to **manually add your generated SSH key to GitHub** (see Step 2 below) to be able to push your assigned block!
-
 #### Windows (PowerShell)
 
 Open **PowerShell** and paste this single command — it installs WSL + Ubuntu and sets up the entire design environment automatically:
@@ -28,9 +26,11 @@ If you are already on a Linux system, open your terminal and run:
 cd ~ && { [ -d EAMTA2026-VLSI ] || git clone https://github.com/Fundacion-Fulgor/EAMTA2026-VLSI.git; } && cd EAMTA2026-VLSI && ./setup.sh
 ```
 
-### 2. Set Up GitHub SSH Keys (Required)
+### 2. Set Up GitHub SSH Keys (Optional)
 
-Whether you used the automated or manual installation, you must add the generated SSH key to your GitHub account to push your work.
+**Note** The automated installation generates an SSH key automatically (no prompts required). You will still need to **manually add your generated SSH key to GitHub** (see Step 2 below) to be able to push your assigned block!
+
+Whether you used the automated or manual installation, you can add the generated SSH key to your GitHub account to push your work.
 
 1. Create a GitHub account at [github.com](https://github.com) if you don't have one.
 2. The installation script will automatically print your new SSH public key at the end of the process (and copy it to your clipboard).
