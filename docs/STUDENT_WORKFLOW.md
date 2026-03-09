@@ -66,35 +66,18 @@ git checkout -b group-<N>/<block-name>
 
 3. Click Netlist and when it's green, simulate
 
-#### 3.3 Characterization (CACE)
-
-1. Create CACE configuration:
-   ```bash
-   mkdir -p design/blocks/<block-name>/char
-   cd design/blocks/<block-name>/char
-   ```
-
-2. Create CACE characterization file (<block-name>.yaml)
-
-3. Run characterization:
-   ```bash
-   cace <block-name>.yaml
-   ```
-
-4. Review results and ensure specifications are met
-
-#### 3.4 Layout (KLayout)
+#### 3.3 Layout (KLayout)
 
 1. Create layout directory:
    ```bash
    mkdir -p design/blocks/<block-name>/layout
-   cd design/blocks/<block-name>/layout
    ```
 
 2. Create layout in KLayout:
    ```bash
-   klayout -e -nn $PDK_ROOT/sg13g2/libs.tech/klayout/tech/sg13g2.lyt
+   klayout -e 
    ```
+   Save it in design/blocks/<block-name>/layout.
 
 3. Layout guidelines:
    - Follow DRC rules
