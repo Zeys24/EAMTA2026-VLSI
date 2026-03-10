@@ -1,0 +1,21 @@
+** sch_path: /home/eamtastudent/EAMTA2026-VLSI/design/blocks/xorgate/Compuerta_xor.sch
+**.subckt Compuerta_xor VDD Z B VSS A
+*.iopin Z
+*.iopin B
+*.iopin VDD
+*.iopin A
+*.iopin VSS
+XM1 net1 Ab VDD net4 sg13_lv_pmos w=1.5u l=0.15u ng=1
+XM4 Z Ab net2 net5 sg13_lv_nmos w=1.5u l=0.15u ng=1
+XM0 net1 Bb VDD net6 sg13_lv_pmos w=1.5u l=0.15u ng=1
+XM3 Z B net1 net7 sg13_lv_pmos w=1.5u l=0.15u ng=1
+XM2 Z A net1 net8 sg13_lv_pmos w=1.5u l=0.15u ng=1
+XM8 Ab A VDD net9 sg13_lv_pmos w=1.5u l=0.15u ng=1
+XM10 Bb B VDD net10 sg13_lv_pmos w=1.5u l=0.15u ng=1
+XM5 Z A net3 net11 sg13_lv_nmos w=1.5u l=0.15u ng=1
+XM9 Ab A VSS net12 sg13_lv_nmos w=0.75u l=0.15u ng=1
+XM6 net2 Bb VSS net13 sg13_lv_nmos w=1.5u l=0.15u ng=1
+XM11 Bb B VSS net14 sg13_lv_nmos w=0.75u l=0.15u ng=1
+XM7 net3 B VSS net15 sg13_lv_nmos w=1.5u l=0.15u ng=1
+**.ends
+.end
