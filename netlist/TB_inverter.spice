@@ -1,0 +1,51 @@
+** sch_path: /home/eamtastudent/EAMTA2026-VLSI/design/TB_inverter.sch
+**.subckt TB_inverter
+inverter avdd1p8 vout vin avss1p8 INVERTER1
+inverter1 avdd1p8 z vout avss1p8 INVERTER1
+v4 avss1p8 0 DC{vss}
+v5 avdd1p8 avss1p8 DC{vdd}
+v6 vin avss1p8 PULSE({vdd} 0 0.0 1p 1p {Tclk/4} {Tclk/2}) DC 0 AC 0
+C1 z avss1p8 1p
+**** begin user architecture code
+
+
+* Circuit Parameters
+.param vdd = 1.2
+.param vss = 0.0
+.param Tclk = 10n
+.options TEMP = 27.0
+* Include Models - IHP SG13G2
+.lib cornerMOSlv.lib mos_tt
+* OP Parameters & Singals to save
+.save all
+*Simulations
+.control
+tran 0.01u 100n
+setplot tran1
+plot v(vin) v(vout)+1.2
+reset
+dc V6 0 1.2 0.01
+setplot dc
+plot vin vout ylabel vout xlabel vin
+set filetype = ascii
+write dcsweep.raw
+.endc
+.end
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  INVERTER1.sym # of pins=4
+** sym_path: /home/eamtastudent/EAMTA2026-VLSI/design/INVERTER1.sym
+** sch_path: /home/eamtastudent/EAMTA2026-VLSI/design/INVERTER1.sch
+.subckt INVERTER1 VDD OUT IN VSS
+*.iopin VDD
+*.iopin OUT
+*.iopin VSS
+*.iopin IN
+XM1 OUT IN VSS VSS sg13_lv_nmos w=0.3u l=0.13u ng=1
+XM2 OUT IN VDD VDD sg13_lv_pmos w=0.3u l=0.13u ng=1
+.ends
+
+.end
