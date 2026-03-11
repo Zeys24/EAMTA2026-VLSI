@@ -1,0 +1,52 @@
+** sch_path: /home/eamtastudent/EAMTA2026-VLSI/design/TB_AND.sch
+**.subckt TB_AND
+x1 avdd1p2 vB vA vout avss1p2 AND
+v1 avdd1p2 avss1p2 DC{vdd}
+C1 vout avss1p2 10f
+v2 avss1p2 0 DC{vss}
+vA vA avss1p2 PULSE({vdd} 0 0.1n 1p 1p {Tclk/2} {Tclk}) DC 0 AC 0
+vB vB avss1p2 PULSE({vdd} 0 0.1n 1p 1p {Tclk} {Tclk*2}) DC 0 AC 0
+**** begin user architecture code
+
+
+* Circuit Parameters
+.param vdd = 1.2
+.param vss = 0.0
+.param Tclk = 10n
+.options TEMP = 27.0
+* Include Models - IHP SG13G2
+.lib cornerMOSlv.lib mos_tt
+* OP Parameters & Singals to save
+.save all
+*Simulations
+.control
+tran 0.01u 100n
+setplot tran1
+plot v(vA) v(vB)+1.5 v(vout)+3
+set filetype = ascii
+write dcsweep.raw
+.endc
+.end
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  AND.sym # of pins=5
+** sym_path: /home/eamtastudent/EAMTA2026-VLSI/design/AND.sym
+** sch_path: /home/eamtastudent/EAMTA2026-VLSI/design/AND.sch
+.subckt AND vdd vA vB vout vss
+*.iopin vout
+*.iopin vA
+*.iopin vB
+*.iopin vdd
+*.iopin vss
+XM2 net1 vA net2 vss sg13_lv_nmos w=1.5u l=0.15u ng=1
+XM0 net1 vA vdd vdd sg13_lv_pmos w=1.5u l=0.15u ng=1
+XM3 net2 vB vss vss sg13_lv_nmos w=1.5u l=0.15u ng=1
+XM1 net1 vB vdd vdd sg13_lv_pmos w=1.5u l=0.15u ng=1
+XM4 vout net1 vdd vdd sg13_lv_pmos w=1.5u l=0.15u ng=1
+XM5 vout net1 vss vss sg13_lv_nmos w=0.15u l=0.75u ng=1
+.ends
+
+.end
