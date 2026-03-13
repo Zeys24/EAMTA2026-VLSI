@@ -106,8 +106,8 @@ model=sg13_lv_pmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} 360 60 0 0 {name=M5
-l=0.75u
-w=0.15u
+l=0.15u
+w=0.75u
 ng=1
 m=1
 model=sg13_lv_nmos

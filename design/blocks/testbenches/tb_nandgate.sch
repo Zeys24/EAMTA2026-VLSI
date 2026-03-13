@@ -22,7 +22,6 @@ N 140 -180 220 -180 {lab=avss1p2}
 N 140 -210 140 -180 {lab=avss1p2}
 N 980 -370 980 -350 {lab=z}
 N 830 -370 880 -370 {lab=z}
-C {NAND.sym} 760 -340 0 0 {name=x1}
 C {vsource.sym} 140 -450 0 0 {name=vA value="PULSE(\{vdd\} 0 0.1n 1p 1p \{Tclk/2\} \{Tclk\}) DC 0 AC 0" savecurrent=false}
 C {vsource.sym} 140 -240 0 0 {name=vB value="PULSE(\{vdd\} 0 0.1n 1p 1p \{Tclk\} \{Tclk*2\}) DC 0 AC 0" savecurrentfalse}
 C {lab_pin.sym} 140 -510 1 0 {name=p1 sig_type=std_logic lab=vA}
@@ -69,3 +68,4 @@ C {lab_pin.sym} 980 -270 3 0 {name=p11 sig_type=std_logic lab=avss1p2}
 C {lab_pin.sym} -90 -390 3 0 {name=p12 sig_type=std_logic lab=avss1p2}
 C {lab_pin.sym} 220 -380 2 0 {name=p13 sig_type=std_logic lab=avss1p2}
 C {lab_pin.sym} 220 -180 2 0 {name=p14 sig_type=std_logic lab=avss1p2}
+C {blocks/nandgate/nandgate.sym} 760 -340 0 0 {name=x1}

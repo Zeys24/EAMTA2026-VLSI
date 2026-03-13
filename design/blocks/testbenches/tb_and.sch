@@ -44,7 +44,6 @@ write dcsweep.raw
 .endc
 .end
 "}
-C {AND.sym} 470 -90 0 0 {name=x1}
 C {lab_pin.sym} 330 -170 1 0 {name=p3 sig_type=std_logic lab=avdd1p2}
 C {vsource.sym} -610 -110 0 0 {name=v1 value=DC\{vdd\} savecurrent=false}
 C {gnd.sym} -520 -40 0 0 {name=l1 lab=0}
@@ -68,3 +67,4 @@ C {lab_pin.sym} -380 -90 2 0 {name=p10 sig_type=std_logic lab=avss1p2}
 C {lab_pin.sym} -610 -170 1 0 {name=p11 sig_type=std_logic lab=avdd1p2}
 C {lab_pin.sym} -520 -180 1 0 {name=p12 sig_type=std_logic lab=avss1p2}
 C {lab_pin.sym} -610 -50 3 0 {name=p13 sig_type=std_logic lab=avss1p2}
+C {blocks/andgate/andgate.sym} 470 -90 0 0 {name=x2}
