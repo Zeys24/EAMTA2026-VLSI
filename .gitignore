@@ -84,6 +84,7 @@ Thumbs.db
 # Documentation build
 docs/_build/
 site/
+*/layout/backups/
 
 # Keep directory structure but ignore empty dirs
 !.gitkeep

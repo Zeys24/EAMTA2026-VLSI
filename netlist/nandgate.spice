@@ -1,0 +1,13 @@
+** sch_path: /home/eamtastudent/EAMTA2026-VLSI/design/blocks/nandgate/nandgate.sch
+**.subckt nandgate vdd vA vB vout vss
+*.iopin vout
+*.iopin vA
+*.iopin vB
+*.iopin vdd
+*.iopin vss
+XM1 vout vA net1 vss sg13_lv_nmos w=0.15u l=0.13u ng=1
+XM2 vout vA vdd vdd sg13_lv_pmos w=0.15u l=0.13u ng=1
+XM3 net1 vB vss vss sg13_lv_nmos w=0.15u l=0.13u ng=1
+XM4 vout vB vdd vdd sg13_lv_pmos w=0.15u l=0.13u ng=1
+**.ends
+.end

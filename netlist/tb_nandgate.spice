@@ -1,0 +1,50 @@
+** sch_path: /home/eamtastudent/EAMTA2026-VLSI/design/blocks/testbenches/tb_nandgate.sch
+**.subckt tb_nandgate
+vA vA avss1p2 PULSE({vdd} 0 0.1n 1p 1p {Tclk/2} {Tclk}) DC 0 AC 0
+vB vB avss1p2 PULSE({vdd} 0 0.1n 1p 1p {Tclk} {Tclk*2}) DC 0 AC 0
+C1 z avss1p2 10f
+v1 avdd1p2 avss1p2 DC{vdd}
+v2 avss1p2 0 DC{vss}
+x1 avdd1p2 vB vA z avss1p2 nandgate
+**** begin user architecture code
+
+
+* Circuit Parameters
+.param vdd = 1.2
+.param vss = 0.0
+.param Tclk = 10n
+.options TEMP = 27.0
+* Include Models - IHP SG13G2
+.lib cornerMOSlv.lib mos_tt
+* OP Parameters & Singals to save
+.save all
+*Simulations
+.control
+tran 0.01u 100n
+setplot tran1
+plot v(vA) v(vB)+1.5 v(z)+3
+set filetype = ascii
+write dcsweep.raw
+.endc
+.end
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  blocks/nandgate/nandgate.sym # of pins=5
+** sym_path: /home/eamtastudent/EAMTA2026-VLSI/design/blocks/nandgate/nandgate.sym
+** sch_path: /home/eamtastudent/EAMTA2026-VLSI/design/blocks/nandgate/nandgate.sch
+.subckt nandgate vdd vA vB vout vss
+*.iopin vout
+*.iopin vA
+*.iopin vB
+*.iopin vdd
+*.iopin vss
+XM1 vout vA net1 vss sg13_lv_nmos w=0.15u l=0.13u ng=1
+XM2 vout vA vdd vdd sg13_lv_pmos w=0.15u l=0.13u ng=1
+XM3 net1 vB vss vss sg13_lv_nmos w=0.15u l=0.13u ng=1
+XM4 vout vB vdd vdd sg13_lv_pmos w=0.15u l=0.13u ng=1
+.ends
+
+.end
