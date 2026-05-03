@@ -1,0 +1,39 @@
+** sch_path: /home/eamtastudent/EAMTA2026-VLSI/design/blocks/flipflop-D/DFFC.sch
+.subckt DFFC clk clr VDD Q QN VSS D
+*.PININFO clk:B clr:B VDD:B Q:B QN:B VSS:B D:B
+M8 net2 clr VSS VSS sg13_lv_nmos w=0.75u l=0.15u ng=1
+M9 net2 net3 VSS VSS sg13_lv_nmos w=0.75u l=0.15u ng=1
+M7 net2 clr net4 VDD sg13_lv_pmos w=3u l=0.15u ng=1
+M6 net4 net3 VDD VDD sg13_lv_pmos w=3u l=0.15u ng=1
+M10 Q net6 VSS VSS sg13_lv_nmos w=0.75u l=0.15u ng=1
+M11 Q clr VSS VSS sg13_lv_nmos w=0.75u l=0.15u ng=1
+M12 Q net6 net5 VDD sg13_lv_pmos w=3u l=0.15u ng=1
+M13 net5 clr VDD VDD sg13_lv_pmos w=3u l=0.15u ng=1
+x8 VDD net3 net1 VSS inverter
+x5 VDD clk' clk VSS inverter
+x7 VDD Q QN VSS inverter
+x1 clk VSS D net1 VDD clk' transmissiongate
+x2 clk VSS net3 net6 VDD clk' transmissiongate
+x3 clk VSS net1 net2 VDD clk' transmissiongate
+x4 clk VSS net6 QN VDD clk' transmissiongate
+.ends
+
+* expanding   symbol:  blocks/inverter/inverter.sym # of pins=4
+** sym_path: /home/eamtastudent/EAMTA2026-VLSI/design/blocks/inverter/inverter.sym
+** sch_path: /home/eamtastudent/EAMTA2026-VLSI/design/blocks/inverter/inverter.sch
+.subckt inverter vdd vout vin vss
+*.PININFO vdd:B vout:B vss:B vin:B
+M1 vout vin vss vss sg13_lv_nmos w=0.75u l=0.15u ng=1
+M2 vout vin vdd vdd sg13_lv_pmos w=1.5u l=0.15u ng=1
+.ends
+
+
+* expanding   symbol:  blocks/transmissiongate/transmissiongate.sym # of pins=6
+** sym_path: /home/eamtastudent/EAMTA2026-VLSI/design/blocks/transmissiongate/transmissiongate.sym
+** sch_path: /home/eamtastudent/EAMTA2026-VLSI/design/blocks/transmissiongate/transmissiongate.sch
+.subckt transmissiongate clk VSS vin vout VDD clk'
+*.PININFO vout:B vin:B clk:B clk':B VSS:B VDD:B
+M1 vout clk' vin VDD sg13_lv_pmos w=1.5u l=0.15u ng=1
+M0 vin clk vout VSS sg13_lv_nmos w=0.75u l=0.15u ng=1
+.ends
+
